@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 100vh;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <style>
+            h5{
+                color:red;
+            }
+        </style>
+        {% for message in messages %}
+        <h5>{{ message }}</h5>
+        {% endfor %}
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="first_name" placeholder="First Name">
+        <input type="text" name="last_name" placeholder="Last Name"><br>
+        <input type="text" name="username" placeholder="Username"><br>
+        <input type="email" name="email" placeholder="Email Address"><br>
+        <input type="password" name="pass1" placeholder="Password">
+        <input type="password" name="pass2" placeholder="Confirm Password"><br>
+        <input type="text" name="degree" placeholder="Degree Name">
+        <input type="text" name="program" placeholder="Program Of Study"><br>
+        <input type="text" name="year" placeholder="Graduation Year"><br>
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>
