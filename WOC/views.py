@@ -3,11 +3,12 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.core.mail import send_mail
-
+from django.contrib.auth.decorators import login_required
 from WOC.models import Profile
 
 
 # Create your views here.
+@login_required(login_url='login')
 def profile(request):
     return render(request, 'profile.html')
 
@@ -68,3 +69,8 @@ def login(request):
             return redirect('login')
     else:
         return render(request, 'login.html')
+
+@login_required(login_url='login')
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
