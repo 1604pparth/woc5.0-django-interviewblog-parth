@@ -8,8 +8,8 @@ from WOC.models import Profile
 
 
 # Create your views here.
-def index(request):
-    return render(request, 'index.html')
+def profile(request):
+    return render(request, 'profile.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -54,4 +54,17 @@ def signup(request):
         return render(request, 'signup.html')
 
 def login(request):
-    return render(request, 'login.html')
+    if request.method == 'POST' :
+        username = request.POST['username']
+        password = request.POST['pass']
+
+        user = auth.authenticate(username=username, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            return redirect('index')
+        else:
+            messages.info(request, 'Credentials invalid')
+            return redirect('login')
+    else:
+        return render(request, 'login.html')
