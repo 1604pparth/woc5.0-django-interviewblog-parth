@@ -62,7 +62,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('index')
+            return redirect('profile')
         else:
             messages.info(request, 'Credentials invalid')
             return redirect('login')
