@@ -31,7 +31,7 @@ def signup(request):
                 messages.info(request, 'Username Taken')
                 return redirect('signup')
             else:
-                user = User.objects.create_user(username=username,email=email,password=password)
+                user = User.objects.create_user(username=username, email=email, password=password)
                 user.save()
 
                 #log user in and redirect to settings page
@@ -54,7 +54,7 @@ def signup(request):
         return render(request, 'signup.html')
 
 def login(request):
-    if request.method == 'POST' :
+    if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['pass']
 
