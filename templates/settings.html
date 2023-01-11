@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>settings</title>
+    <style>
+        img{
+            width: 30px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1><b>hello {{ user_profile.first_name }}</b></h1>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>First Name</label>
+        <input type="text" name="first_name" value="{{ user_profile.first_name }}"><br>
+        <label>Profile photo change</label>
+        <img src="{{ user_profile.profile_photo.url }}">
+        <input type="file" name="profile_photo"><br>
+        <button type="submit">change</button>
+    </form>
+</body>
+</html>

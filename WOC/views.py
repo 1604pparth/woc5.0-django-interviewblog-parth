@@ -36,6 +36,10 @@ def signup(request):
                 user.save()
 
                 #log user in and redirect to settings page
+
+                user_login = auth.authenticate(username=username, password=password)
+                auth.login(request, user_login)
+
                 #create profile object for new user
                 user_model = User.objects.get(username=username)
                 new_profile = Profile.objects.create(user=user_model, id_user=user_model.id, first_name=fname,
@@ -45,7 +49,7 @@ def signup(request):
                 send_mail('Welcome To DA-IICT Interview Blog Community', 'welcome to community', 'djangoautomailsystem@gmail.com',
                           [email], fail_silently=False)
 
-                return redirect('login')
+                return redirect('settings')
         else:
             messages.info(request,'Password not matching')
             return redirect('signup')
@@ -74,3 +78,29 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('login')
+
+@login_required(login_url='login')
+def settings(request):
+    user_profile = Profile.objects.get(user=request.user)
+
+    if request.method == 'POST':
+
+        if request.FILES.get('profile_photo') == None:
+            image = user_profile.profile_photo
+            fname = request.POST['first_name']
+
+            user_profile.profile_photo = image
+            user_profile.first_name = fname
+            user_profile.save()
+
+        if request.FILES.get('profile_photo') != None:
+            image = request.FILES.get('profile_photo')
+            fname = request.POST['first_name']
+
+            user_profile.profile_photo = image
+            user_profile.first_name = fname
+            user_profile.save()
+
+        return  redirect('settings')
+
+    return render(request, 'settings.html', {'user_profile':user_profile})
