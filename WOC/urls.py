@@ -24,4 +24,5 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('logout', views.logout, name='logout'),
     path('settings', views.settings, name='settings'),
+    path('upload', views.upload, name='upload'),
 ]
