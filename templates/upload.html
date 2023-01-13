@@ -2,9 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>upload</title>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../static/css/signup.css">
 </head>
 <body>
 
+    <div>
+        <style>
+            h5{
+                color:red;
+            }
+        </style>
+        {% for message in messages %}
+        <h5>{{ message }}</h5>
+        {% endfor %}
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="company_name" placeholder="company name"><br>
+        <input type="text" name="title" placeholder="Title"><br>
+        <input type="text" name="job_profile" placeholder="Job Profile"><br>
+        <input type="text" name="offer_type" placeholder="Offer Type"><br>
+        <input type="text" name="year" placeholder="Year of Interview"><br>
+        <textarea name="main_blog">Please Write your experience here...</textarea><br>
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
