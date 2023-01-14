@@ -2,36 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>login</title>
+    <title>general</title>
     <link rel="stylesheet" href="../static/css/general.css">
     <link rel="stylesheet" href="../static/css/signin.css">
 </head>
 <body>
-    <div>
-        <style>
+<div>
+    <style>
             h5{
                 color:red;
-                background-color: #1f1f1f;
-                font-family: Helvetica, serif;
-                text-align: center;
-                font-size: 18px;
             }
-        </style>
-
-    </div>
+    </style>
+    {% for message in messages %}
+        <h5>{{ message }}</h5>
+    {% endfor %}
+</div>
+<div class="login_form">
     <form action="" method="POST">
         <h1 class="head">DAIICT Interview Experiences</h1>
         <img src="static/images/logo.png">
         {% csrf_token %}
-        {% for message in messages %}
-        <h5>{{ message }}</h5>
-        {% endfor %}
         <input type="text" name="username" placeholder="Username"><br>
         <input type="password" name="pass" placeholder="Password"><br>
         <button type="submit">Login</button>
-        <h4 class="small">Don't have an account? <a href="signup" class="small">Sign Up</a></h4>
-
     </form>
-
+</div>
 </body>
 </html>

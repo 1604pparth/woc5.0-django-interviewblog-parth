@@ -142,4 +142,10 @@ def upload(request):
 def home(request):
     user_profile = Profile.objects.get(user=request.user)
     posts = Post.objects.all()
-    return render(request, 'home.html', {'user_profile': user_profile, 'posts': posts})
+    if len(posts)!=0:
+        return render(request, 'home.html', {'user_profile': user_profile, 'posts': posts})
+    else:
+        return render(request, 'nopost.html')
+
+def gen(request):
+    return render(request, 'general.html')
