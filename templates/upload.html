@@ -54,6 +54,7 @@
         <h5>{{ message }}</h5>
         {% endfor %}
     </div>
+<div>
     <form action="" method="POST">
         {% csrf_token %}
         <input type="text" name="company_name" placeholder="company name" class="form-control form-control-sm mb-2">
@@ -61,8 +62,9 @@
         <input type="text" name="job_profile" placeholder="Job Profile" class="form-control form-control-sm mb-2">
         <input type="text" name="offer_type" placeholder="Offer Type" class="form-control form-control-sm mb-2">
         <input type="text" name="year" placeholder="Year of Interview" class="form-control form-control-sm mb-2">
-        <textarea name="main_blog" class="form-control form-control-sm mb-2">Please Write your experience here...</textarea>
-        <button type="submit">Submit</button>
+        <textarea name="main_blog" class="form-control form-control-sm mb-2 pb-5" placeholder="Please Write Your Experience Here..."></textarea>
+        <button type="submit" class="mb-2 rounded-3">Submit</button>
     </form>
+</div>
 </body>
 </html>

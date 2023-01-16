@@ -87,6 +87,7 @@ def profile(request):
 @login_required(login_url='login')
 def settings(request):
     user_profile = Profile.objects.get(user=request.user)
+    user_himself = User.objects.get(username=request.user.username)
 
     # method 2
     # user_object = User.objects.get(username=request.user.username)
@@ -97,22 +98,38 @@ def settings(request):
         if request.FILES.get('profile_photo') == None:
             image = user_profile.profile_photo
             fname = request.POST['first_name']
+            lname = request.POST['last_name']
+            deg = request.POST['degree']
+            year = request.POST['year']
+            prog = request.POST['program']
 
             user_profile.profile_photo = image
             user_profile.first_name = fname
+            user_profile.last_name = lname
+            user_profile.degree = deg
+            user_profile.year = year
+            user_profile.program = prog
             user_profile.save()
 
         if request.FILES.get('profile_photo') != None:
             image = request.FILES.get('profile_photo')
             fname = request.POST['first_name']
+            lname = request.POST['last_name']
+            deg = request.POST['degree']
+            year = request.POST['year']
+            prog = request.POST['program']
 
             user_profile.profile_photo = image
             user_profile.first_name = fname
+            user_profile.last_name = lname
+            user_profile.degree = deg
+            user_profile.year = year
+            user_profile.program = prog
             user_profile.save()
 
-        return redirect('settings')
+        return redirect('profile')
 
-    return render(request, 'settings.html', {'user_profile': user_profile})
+    return render(request, 'settings.html', {'user_profile': user_profile , 'user_himself':user_himself})
 
 
 @login_required(login_url='login')
@@ -149,3 +166,18 @@ def home(request):
 
 def gen(request):
     return render(request, 'general.html')
+
+@login_required(login_url='login')
+def chpass(request):
+    user_object = User.objects.get(username=request.user.username)
+    if request.method == 'POST':
+        password = request.POST['pass1']
+        password2 = request.POST['pass2']
+        if password == password2:
+            user_object.set_password('password')
+            user_object.save()
+            redirect('settings')
+        else:
+            messages.info(request, 'Password not matching')
+            return redirect('chpass')
+    return render(request, 'chpass.html')

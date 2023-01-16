@@ -3,17 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>settings</title>
-{#    <link rel="stylesheet" href="../static/css/general.css">#}
+    <link rel="stylesheet" href="../static/css/profile.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 
-    <style>
-        img{
-            width: 30px;
-            height: 50px;
-        }
-    </style>
 </head>
 <body class="bg-dark-subtle">
 <nav class="navbar navbar-expand-lg bg-dark ">
@@ -49,16 +43,53 @@
   </div>
 </nav>
 
-    <h1><b>hello {{ user_profile.first_name }}</b></h1>
-
-    <form action="" method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        <label>First Name</label>
-        <input type="text" name="first_name" value="{{ user_profile.first_name }}"><br>
-        <label>Profile photo change</label>
-        <img src="{{ user_profile.profile_photo.url }}">
-        <input type="file" name="profile_photo"><br>
-        <button type="submit">change</button>
-    </form>
+<div class="parth">
+    <form action="" method="POST" class="align-content-center" enctype="multipart/form-data">
+    {% csrf_token %}
+    <img src="{{ user_profile.profile_photo.url }}" class="rounded-circle mx-auto d-block"><br>
+    <input class="mx-auto" type="file" name="profile_photo">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <label for="fn" class="col-form-label float-end">First Name:</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control mb-1 float-end" type="text" id="fn" name="first_name" value="{{ user_profile.first_name }}" >
+            </div>
+        </div>
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <label for="ln" class="col-form-label float-end">Last Name:</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control mb-1" type="text" id="ln" name="last_name" VALUE="{{ user_profile.last_name }}" >
+            </div>
+        </div>
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <label for="deg" class="col-form-label float-end">Degree:</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control mb-1" type="text" id="deg" name="degree" VALUE="{{ user_profile.degree }}" >
+            </div>
+        </div>
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <label for="prog" class="col-form-label float-end">Program Of Study:</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control mb-1" type="text" id="prog" name="program" value="{{ user_profile.program }}" >
+            </div>
+        </div>
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <label for="year" class="col-form-label  float-end">Year Of Graduation:</label>
+            </div>
+            <div class="col-7">
+                <input class="form-control mb-1" type="text" id="year" name="year" value="{{ user_profile.year }}" >
+            </div>
+        </div>
+    <button type="submit" class="mb-2 rounded-3">Save Edits</button>
+</form>
+</div>
 </body>
 </html>
