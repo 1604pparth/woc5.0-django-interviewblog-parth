@@ -1,11 +1,96 @@
-        *{
-            margin: 0;
-            padding: 0;
+        button{
+            width: 100%;
+            background-color: cornflowerblue;
+            color: ghostwhite;
+            border: none;
+            border-radius: 5px;
+            padding: 4px;
+            margin-top: 4px;
+            margin-bottom: 9px;
         }
-        body{
-            height: 100vh;
-            display:flex;
-            flex-direction: column;
+
+        form{
+            border-radius: 10%;
+            /*background-color: #1f1f1f;*/
+            padding: 25px;
+            padding-bottom: 22px;
             justify-content: center;
-            align-items: center;
+            align-content: center;
+        }
+
+        input{
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 5px;
+            padding: 2px;
+            margin: 4px;
+            margin-left: 0px;
+            margin-right: 0px;
+            border: solid white 1px;
+            color: ghostwhite;
+            margin-bottom: 0px;
+            /*background-color: #1f1f1f;*/
+        }
+
+        ::placeholder{
+            color: floralwhite;
+            opacity: 0.5;
+            font-size: 18px;
+        }
+
+        .small{
+            font-size: 15px;
+            /*background-color: #1f1f1f;*/
+            color: slategray;
+            text-align: center;
+        }
+
+        a:link{
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:visited {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:active {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        .head{
+            font-size: 30px;
+            /*background-color: #1f1f1f;*/
+            font-family: "Rockwell Extra Bold", sans-serif;
+            color: floralwhite;
+            text-align: center;
+        }
+
+        img{
+            border-radius: 25%;
+            width: 25%;
+            height: 100px;
+            background-color: ghostwhite;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+            margin-top: 4px;
+        }
+
+        hr{
+            margin-bottom: 2px;
+            margin-top: 3px;
+            border: cornflowerblue;
+        }
+
+        .side{
+            width: 49.4%;
         }

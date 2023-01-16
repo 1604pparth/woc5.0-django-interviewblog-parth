@@ -1,38 +1,10 @@
-        *{
-            margin: 0;
-            padding: 0;
-            font-size: 20px;
-            font-family: Helvetica,Serif;
-        }
-        body{
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
         form{
             border-radius: 10%;
-            background-color: #1f1f1f;
+            /*background-color: #1f1f1f;*/
             padding: 25px;
             padding-bottom: 22px;
             justify-content: center;
             align-content: center;
-        }
-
-        input{
-            width: 100%;
-            box-sizing: border-box;
-            border-radius: 5px;
-            padding: 4px;
-            margin: 4px;
-            margin-left: 0px;
-            margin-right: 0px;
-            border: solid white 1px;
-            color: ghostwhite;
-            margin-bottom: 0px;
-            background-color: #1f1f1f;
         }
 
         ::placeholder{
@@ -53,7 +25,7 @@
 
         .head{
             font-size: 30px;
-            background-color: #1f1f1f;
+            /*background-color: #1f1f1f;*/
             font-family: "Rockwell Extra Bold", sans-serif;
             color: floralwhite;
         }
@@ -72,13 +44,13 @@
         
         .small{
             font-size: 15px;
-            background-color: #1f1f1f;
+            /*background-color: #1f1f1f;*/
             color: slategray;
             text-align: center;
         }
         
 
-        a:link, visited, hover, active  {
+        a:link{
             text-decoration: none;
             color: cornflowerblue;
         }

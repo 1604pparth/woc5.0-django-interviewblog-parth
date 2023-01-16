@@ -3,10 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../static/css/general.css">
+{#    <link rel="stylesheet" href="../static/css/general.css">#}
     <link rel="stylesheet" href="../static/css/signup.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
 </head>
-<body>
+<body class="bg-dark-subtle">
+<nav class="navbar navbar-expand-lg bg-dark ">
+  <div class="container-fluid ">
+    <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-0 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="home">Home</a>
+        </li>
+          </ul>
+        <ul class="navbar-nav ms-auto">
+        <li class="nav-item ">
+          <a class="nav-link text-white" href="upload">Create Post</a>
+        </li>
+            <li class="nav-item ">
+          <a class="nav-link text-white" href="#">Liked Posts</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle me text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+            Profile
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end bg-dark border border-white">
+            <li><a class="dropdown-item text-white border border-start-0 border-end-0 border-top-0 border-white" href="#">My Posts</a></li>
+            <li><a class="dropdown-item text-white " href="profile">View Profile</a></li>
+            <li><a class="dropdown-item text-white border border-start-0 border-end-0 border-bottom-0 border-white" href="logout">Log Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <div>
         <style>
@@ -20,12 +56,12 @@
     </div>
     <form action="" method="POST">
         {% csrf_token %}
-        <input type="text" name="company_name" placeholder="company name"><br>
-        <input type="text" name="title" placeholder="Title"><br>
-        <input type="text" name="job_profile" placeholder="Job Profile"><br>
-        <input type="text" name="offer_type" placeholder="Offer Type"><br>
-        <input type="text" name="year" placeholder="Year of Interview"><br>
-        <textarea name="main_blog">Please Write your experience here...</textarea><br>
+        <input type="text" name="company_name" placeholder="company name" class="form-control form-control-sm mb-2">
+        <input type="text" name="title" placeholder="Title" class="form-control form-control-sm mb-2">
+        <input type="text" name="job_profile" placeholder="Job Profile" class="form-control form-control-sm mb-2">
+        <input type="text" name="offer_type" placeholder="Offer Type" class="form-control form-control-sm mb-2">
+        <input type="text" name="year" placeholder="Year of Interview" class="form-control form-control-sm mb-2">
+        <textarea name="main_blog" class="form-control form-control-sm mb-2">Please Write your experience here...</textarea>
         <button type="submit">Submit</button>
     </form>
 </body>

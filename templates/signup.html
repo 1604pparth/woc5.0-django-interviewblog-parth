@@ -5,31 +5,46 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="../static/css/general.css">
     <link rel="stylesheet" href="../static/css/signup.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bg-dark-subtle">
 
     <div>
         <style>
             h5{
                 color:red;
+                background-color: #1f1f1f;
+                font-family: Helvetica, serif;
+                text-align: center;
+                font-size: 18px;
             }
         </style>
+
+    </div>
+    <form action="" method="POST" class="bg-dark">
+        <h1 class="head">DAIICT Interview Experiences</h1>
+        <img src="static/images/logo.png">
         {% for message in messages %}
         <h5>{{ message }}</h5>
         {% endfor %}
-    </div>
-    <form action="" method="POST">
         {% csrf_token %}
-        <input type="text" name="first_name" placeholder="First Name">
-        <input type="text" name="last_name" placeholder="Last Name"><br>
-        <input type="text" name="username" placeholder="Username"><br>
-        <input type="email" name="email" placeholder="Email Address"><br>
-        <input type="password" name="pass1" placeholder="Password">
-        <input type="password" name="pass2" placeholder="Confirm Password"><br>
-        <input type="text" name="degree" placeholder="Degree Name">
-        <input type="text" name="program" placeholder="Program Of Study"><br>
-        <input type="text" name="year" placeholder="Graduation Year"><br>
-        <button type="submit">Sign Up</button>
+        <input type="text" name="first_name" placeholder="First Name" class="form-control form-control-sm mb-1">
+        <input type="text" name="last_name" placeholder="Last Name" class="form-control form-control-sm mb-1">
+        <input type="text" name="username" placeholder="Username" class="form-control form-control-sm mb-1">
+        <input type="email" name="email" placeholder="Email Address" class="form-control form-control-sm mb-1">
+        <hr class="mb-1 mt-1">
+        <input type="password" name="pass1" placeholder="Password" class="form-control form-control-sm mb-1">
+        <input type="password" name="pass2" placeholder="Confirm Password" class="form-control form-control-sm mb-1">
+        <hr class="mb-1 mt-1">
+        <input type="text" name="degree" placeholder="Degree Name" class="form-control form-control-sm mb-1">
+        <input type="text" name="program" placeholder="Program Of Study" class="form-control form-control-sm mb-1">
+        <input type="text" name="year" placeholder="Graduation Year" class="form-control form-control-sm mb-1">
+        <button type="submit" class="mb-2 rounded-3">Sign Up</button>
+
+        <h4 class="small">Already a member? <a href="login" class="small">Login</a></h4>
+
     </form>
 </body>
 </html>

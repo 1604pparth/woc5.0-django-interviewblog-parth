@@ -8,10 +8,6 @@ from WOC.models import Profile, Post
 
 
 # Create your views here.
-@login_required(login_url='login')
-def profile(request):
-    return render(request, 'profile.html')
-
 
 def signup(request):
     if request.method == 'POST':
@@ -83,6 +79,10 @@ def logout(request):
     auth.logout(request)
     return redirect('login')
 
+@login_required(login_url='login')
+def profile(request):
+    user_profile = Profile.objects.get(user=request.user)
+    return render(request, 'profile.html', {'user_profile': user_profile})
 
 @login_required(login_url='login')
 def settings(request):

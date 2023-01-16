@@ -22,7 +22,7 @@ class Profile(models.Model):
 
 class Post(models.Model):
     user = models.CharField(max_length=30)
-    id = models.UUIDField(primary_key=True,default=uuid.uuid4())
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     company_name = models.CharField(max_length=255)
     title = models.TextField()
     job_profile = models.CharField(max_length=30)
