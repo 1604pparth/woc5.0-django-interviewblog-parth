@@ -1,0 +1,14 @@
+.parth{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+
+.parth div{
+    border: 2px solid black;
+    border-radius: 5px;
+    justify-content: center;
+    text-align: center;
+}

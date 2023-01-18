@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/home.css">
     <title>Title</title>
 {#    <link rel="stylesheet" href="../static/css/general.css">#}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -10,7 +11,7 @@
 
 </head>
 <body class="bg-dark-subtle">
-<nav class="navbar navbar-expand-lg bg-dark ">
+<nav class="navbar navbar-expand-lg bg-dark sticky-top">
   <div class="container-fluid ">
     <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon "></span>
@@ -33,7 +34,7 @@
             Profile
           </a>
           <ul class="dropdown-menu dropdown-menu-end bg-dark border border-white">
-            <li><a class="dropdown-item text-white border border-start-0 border-end-0 border-top-0 border-white" href="#">My Posts</a></li>
+            <li><a class="dropdown-item text-white border border-start-0 border-end-0 border-top-0 border-white" href="myposts">My Posts</a></li>
             <li><a class="dropdown-item text-white " href="profile">View Profile</a></li>
             <li><a class="dropdown-item text-white border border-start-0 border-end-0 border-bottom-0 border-white" href="logout">Log Out</a></li>
           </ul>
@@ -44,8 +45,22 @@
 </nav>
 
 {% for post in posts %}
-    <h1>{{ post.title }}</h1>
-    <h1>{{ user_profile.first_name }}</h1>
+    <div class="parth my-3">
+        <div class="bg-dark text-white rounded-5 px-3 py-3" id="chaman">
+            <h1 class="main_blog" id="company">Company:</h1>
+            <h1 class="main_blog" id="compdata"> {{ post.company_name.capitalize }} - {{ post.offer_type }}</h1>
+            <h1 class="main_blog" id="name">{{ post.creator.first_name }} {{ post.creator.last_name }}, {{ post.creator.degree }},
+                                                    {{ post.creator.program }}</h1>
+
+                <h1 class="main_blog" id="prof">{{ post.job_profile }}  </h1>
+                <h1 class="main_blog" id="time">Last Updated: {{ post.posted_at }}</h1>
+            <hr class="mt-1 mb-1">
+            <div class="blog">
+                <h1 class="title_blog">{{ post.title.capitalize }}</h1>
+                <h1 class="main_blog">{{ post.main_blog }}</h1>
+            </div>
+        </div>
+    </div>
 {% endfor %}
 </body>
 </html>

@@ -20,6 +20,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Post(models.Model):
     user = models.CharField(max_length=30)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
@@ -31,6 +32,7 @@ class Post(models.Model):
     posted_at = models.DateTimeField(default=datetime.now)
     main_blog = models.TextField()
     likes = models.IntegerField(default=0)
+    creator = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.user

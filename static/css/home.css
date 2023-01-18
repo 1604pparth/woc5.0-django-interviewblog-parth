@@ -1,0 +1,51 @@
+.parth{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*height: 90vh;*/
+    width: 100%;
+}
+
+#chaman{
+    border: 5px solid cornflowerblue;
+    border-radius: 5px;
+    width: 65%;
+}
+
+.main_blog{
+    font-size: 14px;
+    text-align: justify;
+}
+
+#time{
+    float: right;
+    vertical-align: text-bottom;
+    display: inline;
+}
+
+#prof{
+    font-size: 17px;
+    display: inline;
+}
+
+#name{
+    font-size: 17px;
+}
+
+#company{
+    font-size: 23px;
+    display: inline;
+    color: lightseagreen;
+    padding-bottom: 2px;
+}
+
+#compdata{
+    font-size: 23px;
+    display: inline;
+}
+
+.title_blog{
+    font-size: 23px;
+    color: ivory;
+}

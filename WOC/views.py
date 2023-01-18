@@ -66,7 +66,7 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            return redirect('profile')
+            return redirect('home')
         else:
             messages.info(request, 'Credentials invalid')
             return redirect('login')
@@ -134,11 +134,11 @@ def settings(request):
 
 @login_required(login_url='login')
 def upload(request):
-    user_object = User.objects.get(username=request.user.username)
     user_profile = Profile.objects.get(user=request.user)
+    user_model = User.objects.get(username=request.user.username)
 
     if request.method == 'POST':
-        user = user_object.username
+        user = user_profile.user.username
         cname = request.POST['company_name']
         title = request.POST['title']
         jprofile = request.POST['job_profile']
@@ -148,7 +148,7 @@ def upload(request):
 
         new_post = Post.objects.create(user=user, company_name=cname, title=title, job_profile=jprofile,
                                        offer_type=otype,
-                                       year=year, main_blog=mblog)
+                                       year=year, main_blog=mblog, creator=user_profile)
         new_post.save()
         return redirect('home')
 
@@ -167,17 +167,11 @@ def home(request):
 def gen(request):
     return render(request, 'general.html')
 
-@login_required(login_url='login')
-def chpass(request):
-    user_object = User.objects.get(username=request.user.username)
-    if request.method == 'POST':
-        password = request.POST['pass1']
-        password2 = request.POST['pass2']
-        if password == password2:
-            user_object.set_password('password')
-            user_object.save()
-            redirect('settings')
-        else:
-            messages.info(request, 'Password not matching')
-            return redirect('chpass')
-    return render(request, 'chpass.html')
+def myposts(request):
+    user_profile = Profile.objects.get(user=request.user)
+    posts = Post.objects.filter(creator=user_profile).values()
+    if len(posts)!=0:
+        return render(request, 'myposts.html', {'user_profile': user_profile, 'posts': posts})
+    else:
+        return render(request, 'nopostpersonal.html')
+

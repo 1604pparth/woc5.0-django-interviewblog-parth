@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
 {#    <link rel="stylesheet" href="../static/css/general.css">#}
+    <link rel="stylesheet" href="../static/css/nopost.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
@@ -33,8 +34,8 @@
             Profile
           </a>
           <ul class="dropdown-menu dropdown-menu-end bg-dark border border-white">
-            <li><a class="dropdown-item text-white border border-start-0 border-end-0 border-top-0 border-white" href="#">My Posts</a></li>
-            <li><a class="dropdown-item text-white " href="settings">Edit Profile</a></li>
+            <li><a class="dropdown-item text-white border border-start-0 border-end-0 border-top-0 border-white" href="myposts">My Posts</a></li>
+            <li><a class="dropdown-item text-white " href="profile">View Profile</a></li>
             <li><a class="dropdown-item text-white border border-start-0 border-end-0 border-bottom-0 border-white" href="logout">Log Out</a></li>
           </ul>
         </li>
@@ -42,6 +43,12 @@
     </div>
   </div>
 </nav>
-<h1>no post is posted</h1>
+
+<div class="parth">
+    <div class="bg-dark text-white rounded-5 px-3 py-3">
+        <h3>No posts are available</h3>
+        <h3>Be the first to post!!</h3>
+    </div>
+</div>
 </body>
 </html>

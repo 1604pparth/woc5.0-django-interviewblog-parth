@@ -28,4 +28,5 @@ urlpatterns = [
     path('upload', views.upload, name='upload'),
     path('home', views.home, name='home'),
     path('gen', views.gen, name='gen'),
+    path('myposts', views.myposts, name='myposts'),
 ]
