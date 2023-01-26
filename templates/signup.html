@@ -29,17 +29,17 @@
         <h5>{{ message }}</h5>
         {% endfor %}
         {% csrf_token %}
-        <input type="text" name="first_name" placeholder="First Name" class="form-control form-control-sm mb-1">
-        <input type="text" name="last_name" placeholder="Last Name" class="form-control form-control-sm mb-1">
-        <input type="text" name="username" placeholder="Username" class="form-control form-control-sm mb-1">
-        <input type="email" name="email" placeholder="Email Address" class="form-control form-control-sm mb-1">
+        <input type="text" required name="first_name" placeholder="First Name" class="form-control form-control-sm mb-1">
+        <input type="text" required name="last_name" placeholder="Last Name" class="form-control form-control-sm mb-1">
+        <input type="text" required name="username" placeholder="Username" class="form-control form-control-sm mb-1">
+        <input type="email" required name="email" placeholder="Email Address" class="form-control form-control-sm mb-1">
         <hr class="mb-1 mt-1">
-        <input type="password" name="pass1" placeholder="Password" class="form-control form-control-sm mb-1">
-        <input type="password" name="pass2" placeholder="Confirm Password" class="form-control form-control-sm mb-1">
+        <input type="password" required name="pass1" placeholder="Password" class="form-control form-control-sm mb-1">
+        <input type="password" required name="pass2" placeholder="Confirm Password" class="form-control form-control-sm mb-1">
         <hr class="mb-1 mt-1">
-        <input type="text" name="degree" placeholder="Degree Name" class="form-control form-control-sm mb-1">
-        <input type="text" name="program" placeholder="Program Of Study" class="form-control form-control-sm mb-1">
-        <input type="text" name="year" placeholder="Graduation Year" class="form-control form-control-sm mb-1">
+        <input type="text" required name="degree" placeholder="Degree Name" class="form-control form-control-sm mb-1">
+        <input type="text" required name="program" placeholder="Program Of Study" class="form-control form-control-sm mb-1">
+        <input type="text" required name="year" placeholder="Graduation Year" class="form-control form-control-sm mb-1">
         <button type="submit" class="mb-2 rounded-3">Sign Up</button>
 
         <h4 class="small">Already a member? <a href="login" class="small">Login</a></h4>

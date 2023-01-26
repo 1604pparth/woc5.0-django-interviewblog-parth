@@ -27,7 +27,7 @@
           <a class="nav-link text-white" href="upload">Create Post</a>
         </li>
             <li class="nav-item ">
-          <a class="nav-link text-white" href="#">Liked Posts</a>
+          <a class="nav-link text-white" href="likedpost">Liked Posts</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle me text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
@@ -57,12 +57,12 @@
 <div>
     <form action="" method="POST">
         {% csrf_token %}
-        <input type="text" name="company_name" placeholder="company name" class="form-control form-control-sm mb-2">
-        <input type="text" name="title" placeholder="Title" class="form-control form-control-sm mb-2">
-        <input type="text" name="job_profile" placeholder="Job Profile" class="form-control form-control-sm mb-2">
-        <input type="text" name="offer_type" placeholder="Offer Type" class="form-control form-control-sm mb-2">
-        <input type="text" name="year" placeholder="Year of Interview" class="form-control form-control-sm mb-2">
-        <textarea name="main_blog" class="form-control form-control-sm mb-2 pb-5" placeholder="Please Write Your Experience Here..."></textarea>
+        <input type="text" required name="company_name" placeholder="company name" class="form-control form-control-sm mb-2">
+        <input type="text" required name="title" placeholder="Title" class="form-control form-control-sm mb-2">
+        <input type="text" required name="job_profile" placeholder="Job Profile" class="form-control form-control-sm mb-2">
+        <input type="text" required name="offer_type" placeholder="Offer Type" class="form-control form-control-sm mb-2">
+        <input type="text" required name="year" placeholder="Year of Interview" class="form-control form-control-sm mb-2">
+        <textarea required name="main_blog" class="form-control form-control-sm mb-2 pb-5" placeholder="Please Write Your Experience Here..."></textarea>
         <button type="submit" class="mb-2 rounded-3">Submit</button>
     </form>
 </div>

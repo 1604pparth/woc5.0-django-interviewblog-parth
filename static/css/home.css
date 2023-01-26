@@ -13,6 +13,16 @@
     width: 65%;
 }
 
+.fa-heart-o {
+  color: red;
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: red;
+  cursor: pointer;
+}
+
 .main_blog{
     font-size: 14px;
     text-align: justify;
@@ -49,3 +59,23 @@
     font-size: 23px;
     color: ivory;
 }
+
+        a:link {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:visited {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:active {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: cornflowerblue;
+        }

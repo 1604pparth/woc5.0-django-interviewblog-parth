@@ -1,0 +1,75 @@
+img{
+    width: 150px;
+    height: 150px;
+}
+
+a:link{
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:visited {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:active {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: cornflowerblue;
+        }
+
+        .main_blog{
+    font-size: 14px;
+    text-align: justify;
+}
+        #time{
+    float: right;
+    vertical-align: text-bottom;
+    display: inline;
+}
+
+#prof{
+    font-size: 17px;
+    display: inline;
+}
+
+#name{
+    font-size: 17px;
+}
+
+#company{
+    font-size: 23px;
+    display: inline;
+    color: lightseagreen;
+    padding-bottom: 2px;
+}
+
+#compdata{
+    font-size: 23px;
+    display: inline;
+}
+
+.title_blog{
+    font-size: 23px;
+    color: ivory;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+  width: 12px;
+  /*background-color: #F5F5F5;*/
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+  background-color: cornflowerblue;
+}
+
+.scrollbar-primary {
+  scrollbar-color: cornflowerblue #F5F5F5;
+}

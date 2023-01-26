@@ -27,7 +27,7 @@
           <a class="nav-link text-white" href="upload">Create Post</a>
         </li>
             <li class="nav-item ">
-          <a class="nav-link text-white" href="#">Liked Posts</a>
+          <a class="nav-link text-white" href="/likedpost">Liked Posts</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle me text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
@@ -44,6 +44,8 @@
   </div>
 </nav>
 
+<h1 class="text-center my-2" style="font-size: 27px; color: darkslateblue">Your Posts: {{ number_of_post }}</h1>
+
 {% for post in posts %}
     <div class="parth my-3">
         <div class="bg-dark text-white rounded-5 px-3 py-3" id="chaman">
@@ -57,8 +59,13 @@
                 <h1 class="title_blog">{{ post.title.capitalize }}</h1>
                 <h1 class="main_blog">{{ post.main_blog }}</h1>
             </div>
+            <div class="row float-end">
+                    <a href="/delete_post?post_id={{post.id}}" class="float-end  p-1 rounded-1 me-2 text-center bg-danger" style="color: #F5F5F5; width: 90px">Delete Post</a>
+                    <a href="editpost/{{ post.id }}" class="float-end p-1 rounded-1 me-2 text-center" style="background-color: cornflowerblue; color: #F5F5F5;width: 90px">Edit Post</a>
+            </div>
         </div>
     </div>
+
 {% endfor %}
 
 

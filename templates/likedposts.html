@@ -1,17 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-{#    <link rel="stylesheet" href="../static/css/general.css">#}
-    <link rel="stylesheet" href="../static/css/nopost.css">
+    <title>My Posts</title>
+    <link rel="stylesheet" href="../static/css/home.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
+<body>
 <body class="bg-dark-subtle">
-<nav class="navbar navbar-expand-lg bg-dark ">
+<nav class="navbar navbar-expand-lg bg-dark sticky-top">
   <div class="container-fluid ">
     <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon "></span>
@@ -44,11 +48,35 @@
   </div>
 </nav>
 
-<div class="parth">
-    <div class="bg-dark text-white rounded-5 px-3 py-3">
-        <h3>You have not posted anything</h3>
-        <h3>Post your first now!!</h3>
-    </div>
-</div>
+<h1 class="text-center my-2" style="font-size: 27px; color: darkslateblue">Your liked Posts: {{ num }}</h1>
+
+{% for post in posts %}
+    {% if user_profile in post.liked_by.all %}
+        <div class="parth my-3">
+            <div class="bg-dark text-white rounded-5 px-3 py-3" id="chaman">
+                <h1 class="main_blog" id="company">Company:</h1>
+                <h1 class="main_blog" id="compdata"> {{ post.company_name.capitalize }} - {{ post.offer_type }}</h1>
+
+                    <a href="/like_like_post?post_id={{post.id}}" class="float-end">
+                            {% if user_profile not in post.liked_by.all %}
+                                <span id="heart"><i class="fa-regular fa-heart" aria-hidden="true" ></i> </span>
+                            {% else %}
+                                <span id="heart"><i class="fa-solid fa-heart" aria-hidden="true" ></i> </span>
+                            {% endif %}
+                    </a>
+                <h1 class="main_blog" id="name"><a href="profile/{{ post.creator }}" class="link" target="_blank">{{ post.creator.first_name }} {{ post.creator.last_name }}</a>, {{ post.creator.degree }},
+                                                        {{ post.creator.program }}</h1>
+                    <h1 class="main_blog" id="prof">{{ post.job_profile }}  </h1>
+                    <h1 class="main_blog" id="time">Last Updated: {{ post.posted_at }}</h1>
+                <hr class="mt-1 mb-1">
+                <div class="blog">
+                    <h1 class="title_blog">{{ post.title.capitalize }}</h1>
+                    <h1 class="main_blog">{{ post.main_blog }}</h1>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
 </body>
 </html>
